@@ -30,17 +30,28 @@ let tableInfo = {
   ],
 };
 
-var list = ["HTML", "JavaScript", "CSS", "React", "Redux", "Java"];
-var list = document.createElement("ul");
-for (var i in list) {
-  var anchor = document.createElement("a");
-  anchor.href = "#";
-  anchor.innerText = list[i];
-
-  var elem = document.createElement("li");
-  elem.appendChild(anchor);
-  list.appendChild(elem);
+table = document.getElementById("table");
+for (let i = 0; i < tableInfo.length; i++) {
+  let newRow = table.insertRow(table.length);
+  for (let j = 0; j < tableInfo[i].length; j++) {
+    let cell = newRow.insertCell(j);
+    cell.innerHTML = tableInfo[i][j];
+  }
 }
+
+var list = ["HTML", "JavaScript", "CSS", "React", "Redux", "Java"];
+var cont = document.getElementById("container");
+var ul = document.createElement("ul");
+ul.setAttribute("style", "padding: 0; margin: 0;");
+ul.setAttribute("id", "theList");
+for (i = 0; i <= list.length - 1; i++) {
+  var li = document.createElement("li");
+  li.innerHTML = list[i];
+  li.setAttribute("style", "display: block;");
+  ul.appendChild(li);
+}
+
+cont.appendChild(ul); // add list to the container.
 
 var select = document.getElementById("arr");
 const dropDownList = [
